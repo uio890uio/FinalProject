@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 100f;
     private float dashingTime = 1f;
     private float dashingCooldown = 1f;
+    public bool didIJustMoveRight = true;
     AudioManager audioManager;
     public TextMeshProUGUI healthText;
 
@@ -35,6 +36,15 @@ public class PlayerMovement : MonoBehaviour
         // Moving left and Right
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        if (rb.velocity.x > 0)
+        {
+            didIJustMoveRight = true;
+        }
+        else if (rb.velocity.x < 0)
+        {
+            didIJustMoveRight = false;
+        }
+
         transform.Rotate(0f, 180f, 0f);
 
         // Jumping
