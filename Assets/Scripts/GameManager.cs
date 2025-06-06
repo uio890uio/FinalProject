@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int coinsObtained = 0;
     public GameObject pauseMenuUI;
     private bool IsPause = false;
+    public bool BossDefeated = false;
+    public GameObject boss;
 
     private void Start()
     {
@@ -31,10 +33,6 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         
-        if (coinsObtained == 10)
-        {
-            SceneManager.LoadScene("WIN");
-        }
 
     }
     public void ObtainCoin()

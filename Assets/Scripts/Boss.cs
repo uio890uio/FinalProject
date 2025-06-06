@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WalkingEnemy : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public Transform groundCheck;
@@ -13,7 +13,7 @@ public class WalkingEnemy : MonoBehaviour
     public int health = 5;
     public int EnemyType;
 
-  
+
     private void Update()
     {
         if (EnemyType == 0)
@@ -26,10 +26,7 @@ public class WalkingEnemy : MonoBehaviour
                 Flip();
             }
         }
-    
 
-       
-       
     }
 
     void Flip()
@@ -52,16 +49,13 @@ public class WalkingEnemy : MonoBehaviour
             player.Damaged(1);
         }
     }
-    public void TakeDamage (int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
             Destroy(gameObject);
-            if (EnemyType == 2)
-            {
-                SceneManager.LoadScene("WIN");
-            }
+            SceneManager.LoadScene("WIN");
         }
     }
 }
