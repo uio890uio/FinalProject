@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class StayEnemy : MonoBehaviour
 {
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public GameObject EnemyBullet;
     public Transform bulletPos;
-
+    private GameObject player;
     private float timer;
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 2 )
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance < 15)
         {
-            timer = 0;
-            shoot();
+            if (timer > 2)
+            {
+                timer = 0;
+                shoot();
+            }
         }
+        
     }
     void shoot()
     {
         Instantiate(EnemyBullet, bulletPos.position, Quaternion.identity);
     }
+   
 }

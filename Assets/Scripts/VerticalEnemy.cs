@@ -22,12 +22,15 @@ public class VerticalEnemy : MonoBehaviour
             transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
             if(transform.position.y >= maxHeight)
                 IsMovingUp = false;
+            
+                
         }
         else
         {
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
             if (transform.position.y <= minHeight)
                 IsMovingUp = true;
+                
         }
   
     }

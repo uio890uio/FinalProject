@@ -88,8 +88,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        health -= damageVal;
-
         Debug.Log("health = " + health);
         // if no health, destroy player
         if (health <= 0)
